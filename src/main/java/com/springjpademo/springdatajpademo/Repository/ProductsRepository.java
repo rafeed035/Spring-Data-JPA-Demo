@@ -13,4 +13,10 @@ public interface ProductsRepository extends JpaRepository<Products, Integer> {
 
     public List<Products> findByProductId(int id);
 
+    @Query(
+            value = "select * from products",
+            nativeQuery = true
+    )
+    public List<Products> getAllProducts();
+
 }
