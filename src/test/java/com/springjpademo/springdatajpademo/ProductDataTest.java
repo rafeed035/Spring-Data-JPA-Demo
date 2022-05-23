@@ -40,4 +40,10 @@ public class ProductDataTest {
         System.out.println(productsList);
     }
 
+    @Test
+    public void getAllProducts(){
+        List<Products> products = productsRepository.getAllProducts();
+        System.out.println(products);
+    }
+
 }
