@@ -30,11 +30,17 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     //Native named parameter
     @Query(
-            value = "select first_name from customer where city = :city",
+            value = "select first_name from customer where city >= :city",
             nativeQuery = true
     )
     String getCustomerFirstNameByCityNativeNameParam(
             @Param("city") String city
     );
+
+    @Query(
+            value = "select * from customer where city = :city and points > :points",
+            nativeQuery = true
+    )
+    public List<Customer> getCustomerByCityAndPoints(@Param("city") String city, @Param("points") int points);
 
 }

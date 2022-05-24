@@ -16,18 +16,45 @@ public class CustomerDataTest {
 
     @Test
     public void addCustomer(){
-        Customer customer = Customer.builder()
-                .firstName("Babara")
-                .lastName("MacCaffrey")
-                .birthDate("1986-03-28")
-                .phone("781-932-9754")
-                .address("0 Sage Terrace")
+//        Customer customer = Customer.builder()
+//                .firstName("Babara")
+//                .lastName("MacCaffrey")
+//                .birthDate("1986-03-28")
+//                .phone("781-932-9754")
+//                .address("0 Sage Terrace")
+//                .city("Waltham")
+//                .state("MA")
+//                .points(2273)
+//                .build();
+//
+//        customerRepository.save(customer);
+
+        Customer customer2 = Customer.builder()
+                .firstName("Ines")
+                .lastName("Brushfield")
+                .birthDate("1986-04-25")
+                .phone("781-900-9854")
+                .address("0 Sage Trail")
                 .city("Waltham")
                 .state("MA")
-                .points(2273)
+                .points(2573)
                 .build();
 
-        customerRepository.save(customer);
+        customerRepository.save(customer2);
+
+        Customer customer3 = Customer.builder()
+                .firstName("Freddi")
+                .lastName("Green")
+                .birthDate("1996-04-25")
+                .phone("791-700-9854")
+                .address("10 New Trail")
+                .city("Waltham")
+                .state("MA")
+                .points(2503)
+                .build();
+
+        customerRepository.save(customer3);
+
     }
 
     @Test
@@ -58,5 +85,11 @@ public class CustomerDataTest {
     public void getCustomerFirstNameByCityNativeNamedParam(){
         String customer = customerRepository.getCustomerFirstNameByCityNativeNameParam("Waltham");
         System.out.println(customer);
+    }
+
+    @Test
+    public void getCustomersByCityAndPoints(){
+        List<Customer> customerList = customerRepository.getCustomerByCityAndPoints("Waltham", 2500);
+        System.out.println(customerList);
     }
 }
