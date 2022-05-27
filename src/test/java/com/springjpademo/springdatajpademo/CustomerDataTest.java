@@ -92,4 +92,9 @@ public class CustomerDataTest {
         List<Customer> customerList = customerRepository.getCustomerByCityAndPoints("Waltham", 2500);
         System.out.println(customerList);
     }
+
+    @Test
+    public void updateCustomerLastNameByBirthDate(){
+        customerRepository.updateCustomerLastNameByBirthDate("Whitemore", "1996-04-25");
+    }
 }

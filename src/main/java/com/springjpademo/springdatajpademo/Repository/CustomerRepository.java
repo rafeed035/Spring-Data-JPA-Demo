@@ -2,8 +2,10 @@ package com.springjpademo.springdatajpademo.Repository;
 
 import com.springjpademo.springdatajpademo.Entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -42,5 +44,13 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
             nativeQuery = true
     )
     public List<Customer> getCustomerByCityAndPoints(@Param("city") String city, @Param("points") int points);
+
+    @Modifying
+    @Transactional
+    @Query(
+            value = "update customer set last_name = :lastName where birth_date = :birthDate",
+            nativeQuery = true
+    )
+    public void updateCustomerLastNameByBirthDate(@Param("lastName") String nameToUpdate, @Param("birthDate") String birthDate);
 
 }
