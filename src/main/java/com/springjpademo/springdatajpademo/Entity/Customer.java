@@ -57,10 +57,11 @@ public class Customer {
     @OneToMany(
             cascade = CascadeType.ALL
     )
-    @JoinColumn(
-            name = "customerId",
-            referencedColumnName = "customer_id"
+    private List<Products> products;
+
+    @OneToMany(
+            cascade = CascadeType.ALL
     )
-    private List<Orders> orders;
+    private List<Orders>orders;
 }
 

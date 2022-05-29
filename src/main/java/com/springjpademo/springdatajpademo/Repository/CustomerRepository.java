@@ -16,6 +16,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     public List<Customer>findByFirstNameContaining(String name);
 
+    public Customer getCustomerByCustomerId(int id);
+
     //JPQL --> based on the class that we create not the table of the db
     @Query("select c from Customer c where c.city = ?1")
     Customer getCustomerByCity(String city);

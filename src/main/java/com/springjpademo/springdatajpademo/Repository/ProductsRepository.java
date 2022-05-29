@@ -11,7 +11,13 @@ import java.util.List;
 @Repository
 public interface ProductsRepository extends JpaRepository<Products, Integer> {
 
-    public List<Products> findByProductId(int id);
+    public Products findByProductId(int id);
+
+    @Query(
+            value = "select * from products where customer_id = :customerId",
+            nativeQuery = true
+    )
+    public List<Products>getAllProductsByCustomerId(int customerId);
 
     @Query(
             value = "select * from products",

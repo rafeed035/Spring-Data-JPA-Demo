@@ -35,11 +35,18 @@ public class Orders {
     )
     private String orderDate;
 
-    private String comments;
-
-    @Column(
-            name = "shipped_date"
+    @ManyToOne
+    @JoinColumn(
+            name = "customer_id",
+            nullable = false
     )
-    private String shippedDate;
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "product_id",
+            nullable = false
+    )
+    private Products products;
 
 }

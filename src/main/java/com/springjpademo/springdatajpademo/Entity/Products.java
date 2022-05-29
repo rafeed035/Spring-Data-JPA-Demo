@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -40,12 +41,20 @@ public class Products {
     private String productName;
 
     @Column(
-            name = "quantity_in_stock"
-    )
-    private int quantityInStock;
-
-    @Column(
             name = "unit_price"
     )
     private float unitPrice;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "customer_id",
+            nullable = true
+    )
+    private Customer customer;
+
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    private List<Orders> orders;
+
 }

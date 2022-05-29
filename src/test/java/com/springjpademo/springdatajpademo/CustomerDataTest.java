@@ -16,40 +16,40 @@ public class CustomerDataTest {
 
     @Test
     public void addCustomer(){
-//        Customer customer = Customer.builder()
-//                .firstName("Babara")
-//                .lastName("MacCaffrey")
-//                .birthDate("1986-03-28")
-//                .phone("781-932-9754")
-//                .address("0 Sage Terrace")
-//                .city("Waltham")
-//                .state("MA")
-//                .points(2273)
-//                .build();
-//
-//        customerRepository.save(customer);
+        Customer customer1 = Customer.builder()
+                .firstName("Shahed")
+                .lastName("Rafeed")
+                .birthDate("1997-10-20")
+                .phone("01725344591")
+                .address("TTE More Fulbari")
+                .city("Fulbari")
+                .state("Dinajpur")
+                .points(2273)
+                .build();
+
+        customerRepository.save(customer1);
 
         Customer customer2 = Customer.builder()
-                .firstName("Ines")
-                .lastName("Brushfield")
-                .birthDate("1986-04-25")
-                .phone("781-900-9854")
-                .address("0 Sage Trail")
-                .city("Waltham")
-                .state("MA")
+                .firstName("Jannatul")
+                .lastName("Ferdous")
+                .birthDate("1996-10-30")
+                .phone("01751464770")
+                .address("Thikadarpara")
+                .city("Rangpur")
+                .state("Rangpur")
                 .points(2573)
                 .build();
 
         customerRepository.save(customer2);
 
         Customer customer3 = Customer.builder()
-                .firstName("Freddi")
-                .lastName("Green")
-                .birthDate("1996-04-25")
-                .phone("791-700-9854")
-                .address("10 New Trail")
-                .city("Waltham")
-                .state("MA")
+                .firstName("Ahsan")
+                .lastName("SHakil")
+                .birthDate("1997-04-25")
+                .phone("01710112233")
+                .address("Jatrabari")
+                .city("Dhaka")
+                .state("Dhaka")
                 .points(2503)
                 .build();
 
