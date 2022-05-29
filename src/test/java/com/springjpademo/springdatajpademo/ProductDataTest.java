@@ -1,16 +1,12 @@
 package com.springjpademo.springdatajpademo;
 
 import com.springjpademo.springdatajpademo.Entity.Customer;
-import com.springjpademo.springdatajpademo.Entity.Orders;
 import com.springjpademo.springdatajpademo.Entity.Products;
 import com.springjpademo.springdatajpademo.Repository.CustomerRepository;
-import com.springjpademo.springdatajpademo.Repository.OrderRepository;
 import com.springjpademo.springdatajpademo.Repository.ProductsRepository;
-import lombok.Builder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.List;
 

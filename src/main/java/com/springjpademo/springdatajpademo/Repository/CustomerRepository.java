@@ -12,11 +12,11 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     //jpa methods
-    public List<Customer> findByFirstName(String firstName);
+    List<Customer> findByFirstName(String firstName);
 
-    public List<Customer>findByFirstNameContaining(String name);
+    List<Customer>findByFirstNameContaining(String name);
 
-    public Customer getCustomerByCustomerId(int id);
+    Customer getCustomerByCustomerId(int id);
 
     //JPQL --> based on the class that we create not the table of the db
     @Query("select c from Customer c where c.city = ?1")
@@ -45,7 +45,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
             value = "select * from customer where city = :city and points > :points",
             nativeQuery = true
     )
-    public List<Customer> getCustomerByCityAndPoints(@Param("city") String city, @Param("points") int points);
+    List<Customer> getCustomerByCityAndPoints(@Param("city") String city, @Param("points") int points);
 
     @Modifying
     @Transactional
@@ -53,6 +53,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
             value = "update customer set last_name = :lastName where birth_date = :birthDate",
             nativeQuery = true
     )
-    public void updateCustomerLastNameByBirthDate(@Param("lastName") String nameToUpdate, @Param("birthDate") String birthDate);
+    void updateCustomerLastNameByBirthDate(@Param("lastName") String nameToUpdate, @Param("birthDate") String birthDate);
 
 }
